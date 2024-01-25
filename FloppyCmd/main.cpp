@@ -8,10 +8,16 @@
 #include <iostream>
 #include "FAT.hpp"
 #include <errno.h>
+#include <unistd.h>
+#include <sys/param.h>
 
 int main(int argc, const char * argv[]) {
     // insert code here...
     std::cout << "Hello, World!\n";
+    char buf[MAXPATHLEN];
+    std::cout << getcwd(buf, sizeof(buf)) << std::endl;
+   
+    
     if (argc != 2) {
         std::cout << "Filename of the floppy image required" << std::endl;
         return 1;
